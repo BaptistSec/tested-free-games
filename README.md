@@ -548,7 +548,7 @@ For each game:
 
 Honest limits:
 
-- No physical GPU and no sound card in the test environment. 3D games rendered in software (llvmpipe); audio was disabled. Performance on real hardware will be better than anything you see here, and slow first draws in our runs are the test rig, not the game.
+- No physical GPU and no sound card in the test environment. 3D games rendered in software (llvmpipe); audio was disabled. These runs do not measure performance on your hardware. Software rendering and the isolated environment can affect frame rate and startup time; the cause of a slow draw was not isolated.
 - Input is simulated (xdotool), not a human player. "Demo/attract mode" entries prove the game engine renders and runs a level by itself; they do not prove player controls. Where a control scheme is listed from the game's packaged documentation, it says so, and it means we did not exercise it in the automated run.
 - One game (0 A.D.) additionally needed a test-only tweak: it refuses to run as root and our namespace maps the tester to root, so we presented a non-root user id via `LD_PRELOAD`. Its entry is labelled as a modified-environment result.
 - Version notes compare Ubuntu 22.04's package with upstream's latest release, checked on 7 November 2026 from the linked upstream pages. "Latest" means "latest on that date"; check the upstream link for today.
