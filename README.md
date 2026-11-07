@@ -564,7 +564,7 @@ Honest limits:
 
 ## Tidycade
 
-[Tidycade](https://github.com/BaptistSec/Tidycade) is our open-source game library app for discovering, installing and playing free games from one place. The twelve games marked above are in its current catalogue, and this page is its dated evidence companion: each entry shows how far that game got in our own test rig (menu, demo or live play - the entry says which), with the command and the catches. Note our tests ran Ubuntu's apt packages; Tidycade installs may ship different builds, which this page does not verify.
+[Tidycade](https://github.com/BaptistSec/Tidycade) is our game library app for discovering, installing and playing free games from one place. The twelve games marked above are in its current catalogue, and this page is its dated evidence companion: each entry shows how far that game got in our own test rig (menu, demo or live play - the entry says which), with the command and the catches. Tidycade installs its own portable builds; this page tested Ubuntu's apt packages, not those builds.
 
 ## Notes
 
