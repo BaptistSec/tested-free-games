@@ -1,27 +1,106 @@
 # Tested Free Games for Ubuntu
 
-12 free and open-source games we ran ourselves on Ubuntu 22.04 LTS, dated 7 November 2026. Pick a game, paste its command, play. Test details, screenshots and proof are below each game; how we test is at the bottom.
+12 free and open-source games we ran ourselves on Ubuntu 22.04 LTS, tested 7 November 2026. Each pick below: one command to install and start, what it is, what we verified, and any catch. Screenshots and full test notes sit under each game further down.
 
-## Quick start
+What "verified" means here: we ran every game in an isolated test environment (no human player, virtual display, no sound), so "gameplay" can mean the game's own auto-played demo, and listed controls come from the game's own documentation unless marked exercised. Full method at the bottom. If a command says the package is not found, run `sudo add-apt-repository universe` first.
 
-All commands use the Ubuntu `universe` repository (enabled by default on desktop Ubuntu). "Verified" says how far our automated run got - see [Evidence levels](#evidence-levels).
+## The picks
 
-Scope, right where you use it: we ran these games in an isolated package test environment (no human player, virtual display, no sound). "Gameplay" means the game reached a real game screen - sometimes its own auto-played demo - not that playability or controls are proven. Listed controls come from each game's packaged documentation unless an entry says they were exercised.
+### Freedoom Phase 2 - free Doom II campaign (FPS)
 
-| Game | What it is | Install and run | Verified | Catch |
-|---|---|---|---|---|
-| **Freedoom Phase 2** | Free Doom II campaign (FPS, Crispy Doom engine) | `sudo apt install crispy-doom freedoom && crispy-doom -iwad /usr/share/games/doom/freedoom2.wad` | Gameplay (level view) | - |
-| **Nebulus** | Rotating-tower platform action | `sudo apt install toppler && toppler` | Gameplay (attract demo) | - |
-| **LTris** | Polished Tetris-style blocks | `sudo apt install ltris && ltris` | Gameplay (auto-played demo) | New Game screen defaults to the auto-played "Demo" game type |
-| **MadBomber** | Catch falling bombs, Kaboom!-style | `sudo apt install madbomber && madbomber` | Gameplay | - |
-| **Vodovod** | Pipe puzzle against the clock | `sudo apt install vodovod && vodovod` | Gameplay | Original site gone; maintained via Debian/Ubuntu |
-| **BlockOut II** | Tetris in true 3D | `sudo apt install blockout2 && blockout2` | Gameplay | - |
-| **Alex the Allegator 4** | Game Boy-styled platformer | `sudo apt install alex4 && alex4` | Intro interaction | - |
-| **Ceferino** | Fast single-screen arcade | `sudo apt install ceferino && ceferino` | Intro interaction | Upstream site unresponsive at test time |
-| **Powermanga** | Vertical shoot 'em up | `sudo apt install powermanga && powermanga` | Launch | Starfield intro runs several seconds before the menu |
-| **Trackballs** | Marble-rolling 3D levels | `sudo apt install trackballs && trackballs` | Launch | - |
-| **Fillets-NG** | Sokoban-like fish logic puzzles | `sudo apt install fillets-ng && fillets` | Launch | The binary is called `fillets` |
-| **Pingus** | Lemmings-style penguin puzzles | `sudo apt install pingus && pingus` | Launch | Older 0.7.x stable branch |
+```bash
+sudo apt install crispy-doom freedoom && crispy-doom -iwad /usr/share/games/doom/freedoom2.wad
+```
+
+Reached the actual in-level first-person view in our test. [Details and screenshots](#freedoom-phase-2--crispy-doom)
+
+### Nebulus - rotating-tower platform action
+
+```bash
+sudo apt install toppler && toppler
+```
+
+Reached live gameplay (attract demo). [Details and screenshots](#nebulus-toppler)
+
+### LTris - polished Tetris-style blocks
+
+```bash
+sudo apt install ltris && ltris
+```
+
+Reached live gameplay (auto-played demo; the New Game screen defaults to the "Demo" game type). [Details and screenshots](#ltris)
+
+### MadBomber - catch falling bombs, Kaboom!-style
+
+```bash
+sudo apt install madbomber && madbomber
+```
+
+Reached the live game screen. [Details and screenshots](#madbomber)
+
+### Vodovod - pipe puzzle against the clock
+
+```bash
+sudo apt install vodovod && vodovod
+```
+
+Reached the Level 1 board. Catch: the original site is gone; the game is maintained via Debian/Ubuntu. [Details and screenshots](#vodovod)
+
+### BlockOut II - Tetris in true 3D
+
+```bash
+sudo apt install blockout2 && blockout2
+```
+
+Reached a running game (score progressing). [Details and screenshots](#blockout-ii)
+
+### Alex the Allegator 4 - Game Boy-styled platformer
+
+```bash
+sudo apt install alex4 && alex4
+```
+
+Intro verified (story screens respond to keys); gameplay not reached in our automated run. [Details and screenshots](#alex-the-allegator-4)
+
+### Ceferino - fast single-screen arcade
+
+```bash
+sudo apt install ceferino && ceferino
+```
+
+Intro verified. Catch: upstream site unresponsive at test time; the Ubuntu package is the reliable source. [Details and screenshots](#ceferino)
+
+### Powermanga - vertical shoot 'em up
+
+```bash
+sudo apt install powermanga && powermanga
+```
+
+Launch verified (menu rendered). Catch: a starfield intro runs for several seconds before the menu appears; it's not hung. [Details and screenshots](#powermanga)
+
+### Trackballs - marble-rolling 3D levels
+
+```bash
+sudo apt install trackballs && trackballs
+```
+
+Launch verified (menu over animated 3D backdrop). [Details and screenshots](#trackballs)
+
+### Fillets-NG - Sokoban-like fish logic puzzles
+
+```bash
+sudo apt install fillets-ng && fillets
+```
+
+Launch verified (world-map level select). Catch: the binary is called `fillets`. [Details and screenshots](#fillets-ng)
+
+### Pingus - Lemmings-style penguin puzzles
+
+```bash
+sudo apt install pingus && pingus
+```
+
+Launch verified (main menu). Catch: this is the older 0.7.x stable branch, still shipped in Debian/Ubuntu. [Details and screenshots](#pingus)
 
 ---
 
