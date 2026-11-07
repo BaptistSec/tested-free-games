@@ -1,13 +1,11 @@
 # Tested Free Games for Linux - run-tested on Ubuntu
 
-Ten of the best free and open-source games for Linux, each one run by us on Ubuntu 22.04 LTS (tested 7 November 2026), plus 12 more that passed the same test. Every pick tells you why it's worth your time, gives one command to install and start, says what we verified, and names any catch. Screenshots and full test notes sit under each game further down.
-
-What "verified" means here: we ran every game in an isolated test environment (no human player, virtual display, no sound), so "gameplay" can mean the game's own auto-played demo, and listed controls come from the game's own documentation unless marked exercised. Full method at the bottom. If a command says the package is not found, your Ubuntu variant may have the universe repository disabled - run `sudo add-apt-repository universe && sudo apt update`, then try again.
-
-How we picked the ten: long-established free games with complete, playable content - campaigns, multiplayer or full game modes - not tech demos. Between them they span a wide genre spread: kart racing, real-time and turn-based strategy, transport simulation, sandbox building, space trading, platforming, artillery duels and two flavours of shooter. Every one is still maintained, either upstream (current releases verified from the official sites on 7 November 2026, linked in each entry) or through the Debian/Ubuntu packaging teams. Version currency matters to a recommendation, so each pick says how Ubuntu's package compares to the latest upstream release. The "why it's worth playing" lines rest on each project's track record; what our own test proves is stated separately per game - install, launch, and exactly how far we got.
+Ten of the best free games for Linux, each run by us on Ubuntu 22.04 LTS on 7 November 2026 - one copy-paste command, what we verified, the catch. Twelve more below; screenshots and full test notes under each game.
 
 
 ## The picks
+
+If a command says a package is not found, enable the universe repository first (`sudo add-apt-repository universe && sudo apt update`); OpenTTD's sound pack also needs multiverse (`sudo add-apt-repository multiverse`).
 
 ### SuperTuxKart - a complete, polished free kart racer
 
@@ -23,7 +21,7 @@ Story mode, split-screen and online racing. Verified: launched to its first-run 
 sudo apt install 0ad && 0ad
 ```
 
-Real-time strategy with campaigns and multiplayer. Verified: launched and initialised in our no-GPU test env (launch-level only, modified env - see notes). Catch: Ubuntu 22.04's 0.0.25b is three releases behind upstream (Release 28). [Details](#0-ad)
+Real-time strategy with skirmishes, scenarios and multiplayer. Verified: launched and initialised in our no-GPU test env (launch-level only, modified env - see notes). Catch: Ubuntu 22.04's 0.0.25b is three releases behind upstream (Release 28). [Details](#0-ad)
 
 ### OpenTTD - transport empire building
 
@@ -31,7 +29,7 @@ Real-time strategy with campaigns and multiplayer. Verified: launched and initia
 sudo apt install openttd openttd-opengfx openttd-opensfx && openttd
 ```
 
-The open Transport Tycoon successor, deep and actively developed. Verified: a new game map generated and ran in our test. Catch: the graphics/sound packs are separate packages (already in this command). [Details and screenshots](#openttd)
+The open Transport Tycoon successor, deep and actively developed. Verified: a new game map generated and ran in our test. Catch: the graphics/sound packs are separate packages (already in this command; the sound pack needs multiverse enabled). [Details and screenshots](#openttd)
 
 ### Battle for Wesnoth - turn-based fantasy strategy
 
@@ -39,7 +37,7 @@ The open Transport Tycoon successor, deep and actively developed. Verified: a ne
 sudo apt install wesnoth && wesnoth
 ```
 
-Sixteen official campaigns of hex-grid tactics, plus multiplayer. Verified: main menu rendered and responsive. Catch: 22.04 has 1.16; upstream stable is 1.18.x. [Details and screenshots](#battle-for-wesnoth)
+Sixteen official campaigns of hex-grid tactics (counted from the packaged game data), plus multiplayer. Verified: main menu rendered and responsive. Catch: 22.04 has 1.16; upstream stable is 1.18.x. [Details and screenshots](#battle-for-wesnoth)
 
 ### Minetest - open voxel sandbox
 
@@ -87,14 +85,14 @@ Grappling-hook arena shooting, multiplayer only. Verified: main menu rendered (0
 sudo apt install crispy-doom freedoom && crispy-doom -iwad /usr/share/games/doom/freedoom2.wad
 ```
 
-Reached the actual in-level first-person view in our test.
+Reached the actual in-level first-person view in our test. Also in the [Tidycade](https://github.com/BaptistSec/Tidycade) library. [Details and screenshots](#freedoom-phase-2--crispy-doom)
 
 
 ## The games, with proof
 
 ### SuperTuxKart
 
-Kart racing with a story mode, local split-screen and online play. The most polished free racer on Linux.
+Kart racing with a story mode, local split-screen and online play.
 
 ```bash
 sudo apt install supertuxkart && supertuxkart
@@ -109,7 +107,7 @@ sudo apt install supertuxkart && supertuxkart
 
 ### 0 A.D.
 
-Real-time strategy: build a civilization, raise armies, fight campaigns or multiplayer matches.
+Real-time strategy: build a civilization, raise armies, fight skirmishes, scenarios or multiplayer matches.
 
 ```bash
 sudo apt install 0ad && 0ad
@@ -129,8 +127,8 @@ sudo apt install openttd openttd-opengfx openttd-opensfx && openttd
 ```
 
 - **Licence:** GPL-2.0 (per the package copyright file); the OpenGFX/OpenSFX content packs are free as well.
-- **Tested (7 Nov 2026):** openttd 12.1-2build1 with openttd-opengfx 7.1-1 and openttd-opensfx 1.0.3-2. Starting a new game directly (`openttd -g`) generated a map and reached the in-game UI (toolbar, date, treasury). The game warned "no compatible GPU found, hardware acceleration disabled" - expected in our no-GPU test environment; it renders in software.
-- **Catches:** the base `openttd` package ships no graphics or sound - install the two content packages as in the command above, or use the in-game online content downloader. Music playback additionally needs a General MIDI soundfont (the `timgm6mb-soundfont` package is pulled in by this install; on minimal systems music may stay silent).
+- **Tested (7 Nov 2026):** openttd 12.1-2build1 with openttd-opengfx 7.1-1 and openttd-opensfx 1.0.3-2. Starting a new game directly (`openttd -g`) generated a map and reached the in-game UI (toolbar, date, treasury). The screenshot shows the generated world zoomed out - named towns, farms, rivers - after we dismissed the one-time "no compatible GPU found, hardware acceleration disabled" notice (expected in our no-GPU test environment; the game renders in software).
+- **Catches:** the base `openttd` package ships no graphics or sound - install the two content packages as in the command above, or use the in-game online content downloader. `openttd-opensfx` lives in Ubuntu's multiverse component (the rest are in universe). Music playback additionally needs a General MIDI soundfont (the `timgm6mb-soundfont` package is pulled in by this install; on minimal systems music may stay silent).
 - **Version note:** Ubuntu 22.04 carries 12.1; upstream's latest stable is 15.3 (per https://www.openttd.org, checked 7 Nov 2026). Savegames and multiplayer are version-sensitive.
 - **Upstream:** https://www.openttd.org
 
@@ -138,7 +136,7 @@ sudo apt install openttd openttd-opengfx openttd-opensfx && openttd
 
 ### Battle for Wesnoth
 
-Turn-based strategy on hex maps: sixteen official campaigns, plus online multiplayer.
+Turn-based strategy on hex maps: sixteen official campaigns (counted from the packaged 1.16 data), plus online multiplayer.
 
 ```bash
 sudo apt install wesnoth && wesnoth
@@ -146,7 +144,7 @@ sudo apt install wesnoth && wesnoth
 
 - **Licence:** GPL-2.0+ (per the package copyright file).
 - **Tested (7 Nov 2026):** wesnoth 1:1.16.2-2. Main menu rendered (version 1.16.2 shown). On a real install the `wesnoth` command is an alternatives symlink to `wesnoth-1.16` created by the package's postinst; our extraction method skips maintainer scripts, so in the test we launched `wesnoth-1.16` directly.
-- **Version note:** Ubuntu 22.04 carries 1.16.2; upstream's stable branch is 1.18.x (latest 1.18.8 per the official release announcements, checked 7 Nov 2026).
+- **Version note:** Ubuntu 22.04 carries 1.16.2; upstream's stable branch is 1.18.x, latest 1.18.8 (per https://wiki.wesnoth.org/Download, checked 7 Nov 2026).
 - **Upstream:** https://www.wesnoth.org
 
 ![Wesnoth main menu](screenshots/wesnoth-menu.png)
@@ -175,7 +173,7 @@ sudo apt install endless-sky && endless-sky
 ```
 
 - **Licence:** GPL-3+ (code); data CC-BY-SA-4.0 and other free licences (per the package copyright files).
-- **Tested (7 Nov 2026):** endless-sky 0.9.8-1.2. Main menu rendered with version shown; pilot creation is one click past it.
+- **Tested (7 Nov 2026):** endless-sky 0.9.8-1.2. Main menu rendered with version shown.
 - **Version note:** Ubuntu 22.04 carries 0.9.8; upstream's latest stable is v0.11.4 (per https://github.com/endless-sky/endless-sky/releases/latest, checked 7 Nov 2026).
 - **Upstream:** https://endless-sky.github.io
 
@@ -192,7 +190,7 @@ sudo apt install supertux && supertux2
 - **Licence:** GPL-3+ (code); data CC0/OFL and other free licences (per the package copyright files).
 - **Tested (7 Nov 2026):** supertux 0.6.3-1. Intro cutscene and menus rendered and responded to simulated keys; we navigated Start Game > Story Mode to the world map.
 - **Catch:** the run command is `supertux2`, not `supertux`.
-- **Version note:** 0.6.3 is also the current upstream release (per https://supertux.org/download.html, checked 7 Nov 2026).
+- **Version note:** Ubuntu 22.04 carries 0.6.3; upstream's latest release is 0.7.0 (per https://www.supertux.org/download.html, checked 7 Nov 2026).
 - **Upstream:** https://supertux.org
 
 ![SuperTux start menu](screenshots/supertux-menu.png)
@@ -253,7 +251,7 @@ Twelve more games passed the same test rig on the same day. They're solid, just 
 sudo apt install toppler && toppler
 ```
 
-Reached live gameplay (attract demo). [Details and screenshots](#details-nebulus-toppler)
+Reached live gameplay (attract demo). Also in the [Tidycade](https://github.com/BaptistSec/Tidycade) library. [Details and screenshots](#details-nebulus-toppler)
 
 ### LTris - polished Tetris-style blocks
 
@@ -261,7 +259,7 @@ Reached live gameplay (attract demo). [Details and screenshots](#details-nebulus
 sudo apt install ltris && ltris
 ```
 
-Reached live gameplay (auto-played demo; the New Game screen defaults to the "Demo" game type). [Details and screenshots](#details-ltris)
+Reached live gameplay (auto-played demo; the New Game screen defaults to the "Demo" game type). Also in the [Tidycade](https://github.com/BaptistSec/Tidycade) library. [Details and screenshots](#details-ltris)
 
 ### MadBomber - catch falling bombs, Kaboom!-style
 
@@ -269,7 +267,7 @@ Reached live gameplay (auto-played demo; the New Game screen defaults to the "De
 sudo apt install madbomber && madbomber
 ```
 
-Reached the live game screen. [Details and screenshots](#details-madbomber)
+Reached the live game screen. Also in the [Tidycade](https://github.com/BaptistSec/Tidycade) library. [Details and screenshots](#details-madbomber)
 
 ### Vodovod - pipe puzzle against the clock
 
@@ -277,7 +275,7 @@ Reached the live game screen. [Details and screenshots](#details-madbomber)
 sudo apt install vodovod && vodovod
 ```
 
-Reached the Level 1 board. Catch: the original site is gone; the game is maintained via Debian/Ubuntu. [Details and screenshots](#details-vodovod)
+Reached the Level 1 board. Catch: the original site is gone; the game is maintained via Debian/Ubuntu. Also in the [Tidycade](https://github.com/BaptistSec/Tidycade) library. [Details and screenshots](#details-vodovod)
 
 ### BlockOut II - Tetris in true 3D
 
@@ -285,7 +283,7 @@ Reached the Level 1 board. Catch: the original site is gone; the game is maintai
 sudo apt install blockout2 && blockout2
 ```
 
-Reached a running game (score progressing). [Details and screenshots](#details-blockout-ii)
+Reached a running game (score progressing). Also in the [Tidycade](https://github.com/BaptistSec/Tidycade) library. [Details and screenshots](#details-blockout-ii)
 
 ### Alex the Allegator 4 - Game Boy-styled platformer
 
@@ -293,7 +291,7 @@ Reached a running game (score progressing). [Details and screenshots](#details-b
 sudo apt install alex4 && alex4
 ```
 
-Intro verified (story screens respond to keys); gameplay not reached in our automated run. [Details and screenshots](#details-alex-the-allegator-4)
+Intro verified (story screens respond to keys); gameplay not reached in our automated run. Also in the [Tidycade](https://github.com/BaptistSec/Tidycade) library. [Details and screenshots](#details-alex-the-allegator-4)
 
 ### Ceferino - fast single-screen arcade
 
@@ -301,7 +299,7 @@ Intro verified (story screens respond to keys); gameplay not reached in our auto
 sudo apt install ceferino && ceferino
 ```
 
-Intro verified. Catch: upstream site unresponsive at test time; the Ubuntu package is the reliable source. [Details and screenshots](#details-ceferino)
+Intro verified. Catch: upstream site unresponsive at test time; the Ubuntu package is the reliable source. Also in the [Tidycade](https://github.com/BaptistSec/Tidycade) library. [Details and screenshots](#details-ceferino)
 
 ### Powermanga - vertical shoot 'em up
 
@@ -309,7 +307,7 @@ Intro verified. Catch: upstream site unresponsive at test time; the Ubuntu packa
 sudo apt install powermanga && powermanga
 ```
 
-Launch verified (menu rendered). Catch: a starfield intro runs for several seconds before the menu appears; it's not hung. [Details and screenshots](#details-powermanga)
+Launch verified (menu rendered). Catch: a starfield intro runs for several seconds before the menu appears; it's not hung. Also in the [Tidycade](https://github.com/BaptistSec/Tidycade) library. [Details and screenshots](#details-powermanga)
 
 ### Trackballs - marble-rolling 3D levels
 
@@ -317,7 +315,7 @@ Launch verified (menu rendered). Catch: a starfield intro runs for several secon
 sudo apt install trackballs && trackballs
 ```
 
-Launch verified (menu over animated 3D backdrop). [Details and screenshots](#details-trackballs)
+Launch verified (menu over animated 3D backdrop). Also in the [Tidycade](https://github.com/BaptistSec/Tidycade) library. [Details and screenshots](#details-trackballs)
 
 ### Fillets-NG - Sokoban-like fish logic puzzles
 
@@ -325,7 +323,7 @@ Launch verified (menu over animated 3D backdrop). [Details and screenshots](#det
 sudo apt install fillets-ng && fillets
 ```
 
-Launch verified (world-map level select). Catch: the binary is called `fillets`. [Details and screenshots](#details-fillets-ng)
+Launch verified (world-map level select). Catch: the binary is called `fillets`. Also in the [Tidycade](https://github.com/BaptistSec/Tidycade) library. [Details and screenshots](#details-fillets-ng)
 
 ### Pingus - Lemmings-style penguin puzzles
 
@@ -333,9 +331,7 @@ Launch verified (world-map level select). Catch: the binary is called `fillets`.
 sudo apt install pingus && pingus
 ```
 
-Launch verified (main menu). Catch: this is the older 0.7.x stable branch, still shipped in Debian/Ubuntu. 
-
---- [Details and screenshots](#details-pingus)
+Launch verified (main menu). Catch: this is the older 0.7.x stable branch, still shipped in Debian/Ubuntu. Also in the [Tidycade](https://github.com/BaptistSec/Tidycade) library. [Details and screenshots](#details-pingus)
 
 ### Frozen Bubble - colourful bubble-popping puzzle
 
@@ -525,39 +521,6 @@ sudo apt install pingus && pingus
 
 ![Pingus menu](screenshots/pingus-menu.png)
 
----
-
-## How we test
-
-For each game:
-
-1. We resolve the full dependency closure with apt's own resolver (`apt-get install --download-only --print-uris`), so the packages tested are exactly the ones `sudo apt install` would fetch, in the same versions.
-2. We extract the packages and run the game against them in an isolated filesystem namespace (overlayfs over the stock system) on Ubuntu 22.04.5 LTS, with a virtual display (Xvfb, 1280x800x24) and no audio device. This is not a literal `sudo apt install` on a desktop machine; it is a runtime test of apt's exact package set.
-3. We capture screenshots from the live run and record whether the process stayed up, whether the screen responded to simulated keyboard/mouse input (xdotool), and anything that broke.
-4. We read the maintainer scripts (preinst/postinst/prerm/postrm) of every package used. Across all 13 they do routine housekeeping: register menu entries/icons, one `update-alternatives` link (crispy-doom), and set up high-score storage - powermanga installs its binary setgid `root:games` (mode 2755) with score files under `/var/games/powermanga`, and toppler and ltris create `root:games` score directories/files. Our extraction test does not reproduce those ownership/permission steps, so installed high-score saving was not exercised.
-5. Licence statements come from each package's own `/usr/share/doc/<package>/copyright` file (including the `-data` package where a game splits one), not from assumption.
-
-Honest limits:
-
-- No physical GPU and no sound card in the test environment. 3D games rendered in software; audio was disabled. Performance on real hardware will be better than anything you see here.
-- Input is simulated (xdotool), not a human player. "Demo/attract mode" entries prove the game engine renders and runs a level by itself; they do not prove player controls. Where a control scheme is listed from the game's packaged documentation, it says so, and it means we did not exercise it in the automated run.
-- Nothing here is a guarantee about other Ubuntu versions, Wayland sessions, or your hardware. It's a dated record of what ran, where, and how.
-
-## Evidence levels
-
-| Level | Meaning |
-|---|---|
-| **Gameplay screen reached** | Menus passed and an actual level/game screen rendered (start of play or attract/demo mode - the entry says which). |
-| **Menu interaction verified** | Menu or intro screens visibly changed in response to simulated input. |
-| **Launch verified** | Game launched, rendered its real menu/graphics, and stayed running. Input not exercised. |
-
-## Notes
-
-- Every screenshot in `screenshots/` was captured from our own test run on 7 November 2026; nothing is copied from upstream marketing material. Screenshots depict the games and remain subject to each game's own licence; they are included as test evidence.
-- Every game also has an Ubuntu package page: `https://packages.ubuntu.com/jammy/<package-name>`.
-- Current-LTS availability check (7 November 2026, packages.ubuntu.com): all ten headline packages exist on Ubuntu 26.04 LTS (Resolute Raccoon) - supertuxkart 1.5-2build1, 0ad 0.28.0-3, openttd 15.1-1, wesnoth 1:1.18.7-1, minetest 5.10.0+dfsg-5+deb13u1build0.26.04.1, endless-sky 0.10.16-3, supertux 0.6.3-5, hedgewars 1.0.3-4build4, teeworlds 0.7.5-3, freedoom 0.13.0-3. This is availability information only, fetched from the package index - we run-tested on 22.04, not 26.04.
-- Text in this repository is MIT-licensed (see LICENSE).
-- Planned next: more games, exercising real gameplay controls for every entry, a Windows edition, and re-dating entries as new Ubuntu releases land.
 
 ### Details: Frozen Bubble
 
@@ -570,6 +533,10 @@ Aim coloured bubbles from the penguin's launcher at the bottom; match 3 or more 
 ![Frozen Bubble Level 1 board](screenshots/frozen-bubble-game.png)
 
 ---
+
+## How we picked the ten
+
+Long-established free games with complete, playable content - campaigns, multiplayer or full game modes - not tech demos. Between them they span a wide genre spread: kart racing, real-time and turn-based strategy, transport simulation, sandbox building, space trading, platforming, artillery duels and two flavours of shooter. Every one is still maintained, either upstream (current releases verified from the official sites on 7 November 2026, linked in each entry) or through the Debian/Ubuntu packaging teams. The "why it's worth playing" lines rest on each project's track record; what our own test proves is stated separately per game. "Verified" means we ran the game in an isolated test environment (no human player, virtual display, no sound), so "gameplay" can mean the game's own auto-played demo - the method section below has the detail.
 
 ## How we test
 
@@ -596,6 +563,10 @@ Honest limits:
 | **Gameplay screen reached** | Menus passed and an actual level/game screen rendered (start of play or attract/demo mode - the entry says which). |
 | **Menu interaction verified** | Menu or intro screens visibly changed in response to simulated input. |
 | **Launch verified** | Game launched, rendered its real menu/graphics, and stayed running. Input not exercised. |
+
+## Tidycade
+
+[Tidycade](https://github.com/BaptistSec/Tidycade) is our open-source game library app for discovering, installing and playing free games from one place. The twelve games marked above are in its current catalogue; this repo is the dated run-evidence behind the picks - Tidycade tells you what exists, this page shows each one actually running, with the command and the catches.
 
 ## Notes
 
