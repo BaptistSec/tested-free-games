@@ -2,7 +2,7 @@
 
 12 free and open-source games we ran ourselves on Ubuntu 22.04 LTS, tested 7 November 2026. Each pick below: one command to install and start, what it is, what we verified, and any catch. Screenshots and full test notes sit under each game further down.
 
-What "verified" means here: we ran every game in an isolated test environment (no human player, virtual display, no sound), so "gameplay" can mean the game's own auto-played demo, and listed controls come from the game's own documentation unless marked exercised. Full method at the bottom. If a command says the package is not found, run `sudo add-apt-repository universe` first.
+What "verified" means here: we ran every game in an isolated test environment (no human player, virtual display, no sound), so "gameplay" can mean the game's own auto-played demo, and listed controls come from the game's own documentation unless marked exercised. Full method at the bottom. If a command says the package is not found, your Ubuntu variant may have the universe repository disabled - run `sudo add-apt-repository universe && sudo apt update`, then try again.
 
 ## The picks
 
@@ -301,7 +301,7 @@ For each game:
 1. We resolve the full dependency closure with apt's own resolver (`apt-get install --download-only --print-uris`), so the packages tested are exactly the ones `sudo apt install` would fetch, in the same versions.
 2. We extract the packages and run the game against them in an isolated filesystem namespace (overlayfs over the stock system) on Ubuntu 22.04.5 LTS, with a virtual display (Xvfb, 1280x800x24) and no audio device. This is not a literal `sudo apt install` on a desktop machine; it is a runtime test of apt's exact package set.
 3. We capture screenshots from the live run and record whether the process stayed up, whether the screen responded to simulated keyboard/mouse input (xdotool), and anything that broke.
-4. We read the maintainer scripts (preinst/postinst) of every package used. Across all 13 they do nothing beyond seeding high-score files, registering menu entries/icons, and one `update-alternatives` link (crispy-doom) - so a real `sudo apt install` does the same thing plus those trivial steps.
+4. We read the maintainer scripts (preinst/postinst/prerm/postrm) of every package used. Across all 13 they do routine housekeeping: register menu entries/icons, one `update-alternatives` link (crispy-doom), and set up high-score storage - powermanga installs its binary setgid `root:games` (mode 2755) with score files under `/var/games/powermanga`, and toppler and ltris create `root:games` score directories/files. Our extraction test does not reproduce those ownership/permission steps, so installed high-score saving was not exercised.
 5. Licence statements come from each package's own `/usr/share/doc/<package>/copyright` file (including the `-data` package where a game splits one), not from assumption.
 
 Honest limits:
