@@ -5,8 +5,6 @@ Ten of the best free games for Linux, each run by us on Ubuntu 22.04 LTS on 7 No
 
 ## The picks
 
-If a command says a package is not found, enable the universe repository first (`sudo add-apt-repository universe && sudo apt update`); OpenTTD's sound pack also needs multiverse (`sudo add-apt-repository multiverse`).
-
 ### SuperTuxKart - a complete, polished free kart racer
 
 ```bash
@@ -566,12 +564,13 @@ Honest limits:
 
 ## Tidycade
 
-[Tidycade](https://github.com/BaptistSec/Tidycade) is our open-source game library app for discovering, installing and playing free games from one place. The twelve games marked above are in its current catalogue; this repo is the dated run-evidence behind the picks - Tidycade tells you what exists, this page shows each one actually running, with the command and the catches.
+[Tidycade](https://github.com/BaptistSec/Tidycade) is our open-source game library app for discovering, installing and playing free games from one place. The twelve games marked above are in its current catalogue, and this page is its dated evidence companion: each entry shows how far that game got in our own test rig (menu, demo or live play - the entry says which), with the command and the catches. Note our tests ran Ubuntu's apt packages; Tidycade installs may ship different builds, which this page does not verify.
 
 ## Notes
 
 - Every screenshot in `screenshots/` was captured from our own test run on 7 November 2026; nothing is copied from upstream marketing material. Screenshots depict the games and remain subject to each game's own licence; they are included as test evidence.
 - Every game also has an Ubuntu package page: `https://packages.ubuntu.com/jammy/<package-name>`.
+- All commands install from Ubuntu's universe repository; OpenTTD's sound pack (`openttd-opensfx`) is in multiverse. If a command says a package is not found, enable the missing component: `sudo add-apt-repository universe` (or `multiverse`), then `sudo apt update` and retry.
 - Current-LTS availability check (7 November 2026, packages.ubuntu.com): all ten headline packages exist on Ubuntu 26.04 LTS (Resolute Raccoon) - supertuxkart 1.5-2build1, 0ad 0.28.0-3, openttd 15.1-1, wesnoth 1:1.18.7-1, minetest 5.10.0+dfsg-5+deb13u1build0.26.04.1, endless-sky 0.10.16-3, supertux 0.6.3-5, hedgewars 1.0.3-4build4, teeworlds 0.7.5-3, freedoom 0.13.0-3. This is availability information only, fetched from the package index - we run-tested on 22.04, not 26.04.
 - Text in this repository is MIT-licensed (see LICENSE).
 - Planned next: more games, exercising real gameplay controls for every entry, testing on the current Ubuntu LTS, a Windows edition, and re-dating entries as new Ubuntu releases land.
