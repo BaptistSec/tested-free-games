@@ -4,10 +4,12 @@ Ten of the best free and open-source games for Linux, each one run by us on Ubun
 
 What "verified" means here: we ran every game in an isolated test environment (no human player, virtual display, no sound), so "gameplay" can mean the game's own auto-played demo, and listed controls come from the game's own documentation unless marked exercised. Full method at the bottom. If a command says the package is not found, your Ubuntu variant may have the universe repository disabled - run `sudo add-apt-repository universe && sudo apt update`, then try again.
 
+How we picked the ten: they are complete, polished games - full campaigns, real multiplayer, years of development behind them - not tech demos or experiments. Between them they cover ten different genres, and every one is still maintained, either upstream (current releases verified from the official sites on 7 November 2026, linked in each entry) or through the Debian/Ubuntu packaging teams. Version currency matters to a recommendation, so each pick says how Ubuntu's package compares to the latest upstream release.
+
 
 ## The picks
 
-### SuperTuxKart - the most complete free kart racer
+### SuperTuxKart - a complete, polished free kart racer
 
 ```bash
 sudo apt install supertuxkart && supertuxkart
@@ -243,7 +245,7 @@ crispy-doom -iwad /usr/share/games/doom/freedoom2.wad   # or the `freedoom2` lau
 
 ## Also tested
 
-These 12 smaller or older games passed the same test rig on the same day. They're solid, just not the headline picks above. Same deal: command, what we verified, catches, proof.
+Twelve more games passed the same test rig on the same day. They're solid, just not the headline picks above. Quick command and verdict here; licences, full test notes and screenshots sit in the details under each game.
 
 ### Nebulus - rotating-tower platform action
 
@@ -251,9 +253,100 @@ These 12 smaller or older games passed the same test rig on the same day. They'r
 sudo apt install toppler && toppler
 ```
 
-Reached live gameplay (attract demo).
+Reached live gameplay (attract demo). [Details and screenshots](#details-nebulus-toppler)
 
-### Nebulus (Toppler)
+### LTris - polished Tetris-style blocks
+
+```bash
+sudo apt install ltris && ltris
+```
+
+Reached live gameplay (auto-played demo; the New Game screen defaults to the "Demo" game type). [Details and screenshots](#details-ltris)
+
+### MadBomber - catch falling bombs, Kaboom!-style
+
+```bash
+sudo apt install madbomber && madbomber
+```
+
+Reached the live game screen. [Details and screenshots](#details-madbomber)
+
+### Vodovod - pipe puzzle against the clock
+
+```bash
+sudo apt install vodovod && vodovod
+```
+
+Reached the Level 1 board. Catch: the original site is gone; the game is maintained via Debian/Ubuntu. [Details and screenshots](#details-vodovod)
+
+### BlockOut II - Tetris in true 3D
+
+```bash
+sudo apt install blockout2 && blockout2
+```
+
+Reached a running game (score progressing). [Details and screenshots](#details-blockout-ii)
+
+### Alex the Allegator 4 - Game Boy-styled platformer
+
+```bash
+sudo apt install alex4 && alex4
+```
+
+Intro verified (story screens respond to keys); gameplay not reached in our automated run. [Details and screenshots](#details-alex-the-allegator-4)
+
+### Ceferino - fast single-screen arcade
+
+```bash
+sudo apt install ceferino && ceferino
+```
+
+Intro verified. Catch: upstream site unresponsive at test time; the Ubuntu package is the reliable source. [Details and screenshots](#details-ceferino)
+
+### Powermanga - vertical shoot 'em up
+
+```bash
+sudo apt install powermanga && powermanga
+```
+
+Launch verified (menu rendered). Catch: a starfield intro runs for several seconds before the menu appears; it's not hung. [Details and screenshots](#details-powermanga)
+
+### Trackballs - marble-rolling 3D levels
+
+```bash
+sudo apt install trackballs && trackballs
+```
+
+Launch verified (menu over animated 3D backdrop). [Details and screenshots](#details-trackballs)
+
+### Fillets-NG - Sokoban-like fish logic puzzles
+
+```bash
+sudo apt install fillets-ng && fillets
+```
+
+Launch verified (world-map level select). Catch: the binary is called `fillets`. [Details and screenshots](#details-fillets-ng)
+
+### Pingus - Lemmings-style penguin puzzles
+
+```bash
+sudo apt install pingus && pingus
+```
+
+Launch verified (main menu). Catch: this is the older 0.7.x stable branch, still shipped in Debian/Ubuntu. 
+
+--- [Details and screenshots](#details-pingus)
+
+### Frozen Bubble - colourful bubble-popping puzzle
+
+```bash
+sudo apt install frozen-bubble && frozen-bubble
+```
+
+Reached the Level 1 game board in our test. Catch: upstream development has been dormant for years; Debian still maintains the package. [Details and screenshots](#details-frozen-bubble)
+
+### Details: Nebulus (Toppler)
+
 
 Climb a rotating tower against the clock; a remake of the classic Nebulus/Tower Toppler.
 
@@ -269,171 +362,214 @@ sudo apt install toppler && toppler
 ![Nebulus menu](screenshots/toppler-menu.png)
 ![Nebulus demo gameplay](screenshots/toppler-demo.png)
 
-### LTris - polished Tetris-style blocks
+### Details: LTris
+
+
+A polished Tetris-style falling-block game with a high-score chart and multiplayer options.
 
 ```bash
 sudo apt install ltris && ltris
 ```
 
-Reached live gameplay (auto-played demo; the New Game screen defaults to the "Demo" game type).
+- **Licence:** GPL (package copyright; version text says GNU GPL, see `/usr/share/doc/ltris/copyright`).
+- **Tested:** 1.0.19-3build1. Arrow keys navigated the menu into the New Game screen (verified by screenshot). Starting the default "Demo" game type launched the auto-played demo: the screenshots show the demo playing, score rising from 100 to 700 across a few seconds. Player controls not exercised.
+- **Upstream:** http://lgames.sourceforge.net/index.php?project=LTris (reachable from our test network; one earlier check from elsewhere received a 403, likely bot filtering - the [package page](https://packages.ubuntu.com/jammy/ltris) is the fallback)
 
-### LTris - polished Tetris-style blocks
+![LTris menu](screenshots/ltris-menu.png)
+![LTris demo gameplay](screenshots/ltris-gameplay.png)
 
-```bash
-sudo apt install ltris && ltris
-```
+### Details: MadBomber
 
-Reached live gameplay (auto-played demo; the New Game screen defaults to the "Demo" game type). [Details and screenshots](#ltris)
 
-### MadBomber - catch falling bombs, Kaboom!-style
-
-```bash
-sudo apt install madbomber && madbomber
-```
-
-Reached the live game screen.
-
-### MadBomber - catch falling bombs, Kaboom!-style
+Kaboom!-style arcade catching: move the bucket, catch the bombs.
 
 ```bash
 sudo apt install madbomber && madbomber
 ```
 
-Reached the live game screen. [Details and screenshots](#madbomber)
+- **Licence:** GPL-2.0 (package copyright).
+- **Tested:** 0.2.5-8.1. Menu rendered; selecting One Player with simulated keys reached the live game screen (bomber throwing bombs, buckets below).
+- **Upstream:** http://www.newbreedsoftware.com/madbomber/ (reachable at test time)
 
-### Vodovod - pipe puzzle against the clock
+![MadBomber menu](screenshots/madbomber-launch.png)
+![MadBomber gameplay](screenshots/madbomber-gameplay.png)
+
+### Details: Vodovod
+
+
+Connect pipes before the water starts flowing; a pipe-puzzle against the clock.
 
 ```bash
 sudo apt install vodovod && vodovod
 ```
 
-Reached the Level 1 board. Catch: the original site is gone; the game is maintained via Debian/Ubuntu.
+- **Licence:** GPL-2.0+ (package copyright).
+- **Tested:** 1.10-5. Menu rendered; simulated keys started a new game and reached the Level 1 board with the pipe tray. Placing pipes (mouse work) not exercised.
+- **Controls (in-game Help and packaged man page):** mouse places pipes; joystick configurable in Options. Not exercised beyond menu input.
+- **Upstream:** the original project site is gone; the game is maintained in Debian/Ubuntu - https://tracker.debian.org/pkg/vodovod
 
-### Vodovod - pipe puzzle against the clock
+![Vodovod menu](screenshots/vodovod-menu.png)
+![Vodovod Level 1 board](screenshots/vodovod-gameplay.png)
 
-```bash
-sudo apt install vodovod && vodovod
-```
+### Details: BlockOut II
 
-Reached the Level 1 board. Catch: the original site is gone; the game is maintained via Debian/Ubuntu. [Details and screenshots](#vodovod)
 
-### BlockOut II - Tetris in true 3D
-
-```bash
-sudo apt install blockout2 && blockout2
-```
-
-Reached a running game (score progressing).
-
-### BlockOut II - Tetris in true 3D
+Tetris in true 3D: rotate blocks in three axes and fill pits.
 
 ```bash
 sudo apt install blockout2 && blockout2
 ```
 
-Reached a running game (score progressing). [Details and screenshots](#blockout-ii)
+- **Licence:** GPL-2.0+ (package copyright).
+- **Tested:** 2.5+dfsg1-1build1. Menu rendered; simulated keys started a "Flat Fun" game and the run progressed (score 34, 5 cubes played at capture). How much of that progress was our input versus automatic falling is unverified.
+- **Controls (packaged man page, not verified in our run):** arrows and Space move the falling piece.
+- **Upstream:** http://www.blockout.net/blockout2/ (reachable at test time)
 
-### Alex the Allegator 4 - Game Boy-styled platformer
+![BlockOut II menu](screenshots/blockout2-menu.png)
+![BlockOut II gameplay](screenshots/blockout2-gameplay.png)
+
+### Details: Alex the Allegator 4
+
+
+A deliberately Game Boy-styled platformer: two-colour graphics, chiptune, short levels.
 
 ```bash
 sudo apt install alex4 && alex4
 ```
 
-Intro verified (story screens respond to keys); gameplay not reached in our automated run.
+- **Licence:** GPL-2.0+ (package copyright).
+- **Tested:** 1.1-9. Story intro rendered and advanced in response to key presses. Actual gameplay not reached in the automated run.
+- **Controls (packaged man page, not exercised):** arrow keys move; jump and shoot (shooting unlocked once you find eggs); keyboard or joystick.
+- **Upstream:** http://allegator.sourceforge.net/ (reachable at test time)
 
-### Alex the Allegator 4 - Game Boy-styled platformer
+![Alex 4 intro](screenshots/alex4-intro.png)
+![Alex 4 intro, later frame](screenshots/alex4-intro-2.png)
 
-```bash
-sudo apt install alex4 && alex4
-```
+### Details: Ceferino
 
-Intro verified (story screens respond to keys); gameplay not reached in our automated run. [Details and screenshots](#alex-the-allegator-4)
 
-### Ceferino - fast single-screen arcade
-
-```bash
-sudo apt install ceferino && ceferino
-```
-
-Intro verified. Catch: upstream site unresponsive at test time; the Ubuntu package is the reliable source.
-
-### Ceferino - fast single-screen arcade
+Fast single-screen arcade platforming from the LosersJuegos team: aliens are stealing Don Ceferino's cows.
 
 ```bash
 sudo apt install ceferino && ceferino
 ```
 
-Intro verified. Catch: upstream site unresponsive at test time; the Ubuntu package is the reliable source. [Details and screenshots](#ceferino)
+- **Licence:** GPL-2.0+ (package copyright).
+- **Tested:** 0.97.8+svn37-2build1. Intro and comic story screens rendered and advanced after key presses. Actual gameplay not reached in the automated run.
+- **Controls (packaged man page, not exercised):** menus with arrows + Return/Space; in game, Left/Right move, Up climbs stairs, Down crouches.
+- **Upstream:** http://www.losersjuegos.com.ar/juegos/ceferino did not respond at test time (we don't know whether that's temporary); use the [package page](https://packages.ubuntu.com/jammy/ceferino)
 
-### Powermanga - vertical shoot 'em up
+![Ceferino intro](screenshots/ceferino-menu.png)
+![Ceferino story screen after input](screenshots/ceferino-after-input.png)
+
+### Details: Powermanga
+
+
+Vertical-scrolling arcade shoot 'em up with power-ups and big sprites.
 
 ```bash
 sudo apt install powermanga && powermanga
 ```
 
-Launch verified (menu rendered). Catch: a starfield intro runs for several seconds before the menu appears; it's not hung.
+- **Licence:** GPL-3.0+ (package copyright).
+- **Tested:** 0.93.1-4. Launched and rendered its animated menu (PLAY / ORDER / ABOUT / QUIT). Note: a starfield intro runs for several seconds before the menu appears; first launch is not hung, just slow. Menu input not exercised.
+- **Controls (packaged docs, not exercised):** arrow keys move, Space fires, Ctrl confirms; Ctrl+Q quits.
+- **Upstream:** http://linux.tlk.fr/games/Powermanga/ (reachable at test time)
 
-### Powermanga - vertical shoot 'em up
+![Powermanga menu](screenshots/powermanga-menu.png)
 
-```bash
-sudo apt install powermanga && powermanga
-```
+### Details: Trackballs
 
-Launch verified (menu rendered). Catch: a starfield intro runs for several seconds before the menu appears; it's not hung. [Details and screenshots](#powermanga)
 
-### Trackballs - marble-rolling 3D levels
-
-```bash
-sudo apt install trackballs && trackballs
-```
-
-Launch verified (menu over animated 3D backdrop).
-
-### Trackballs - marble-rolling 3D levels
+Guide a marble through tilted 3D levels, in the spirit of Marble Madness.
 
 ```bash
 sudo apt install trackballs && trackballs
 ```
 
-Launch verified (menu over animated 3D backdrop). [Details and screenshots](#trackballs)
+- **Licence:** GPL-2.0+ (game; package copyright also lists the Ethymonics Free Music License for bundled music).
+- **Tested:** 1.3.3-1. Launched and rendered its menu over an animated 3D backdrop. Input response unconfirmed; gameplay not reached in the automated run.
+- **Controls (packaged man page, not exercised):** mouse steers the ball; sensitivity adjustable in Settings.
+- **Upstream:** https://trackballs.github.io/ (reachable at test time)
 
-### Fillets-NG - Sokoban-like fish logic puzzles
+![Trackballs menu](screenshots/trackballs-menu.png)
+
+### Details: Fillets-NG
+
+
+Sokoban-like logic puzzles: push objects around to free two fish, with deadpan commentary.
 
 ```bash
 sudo apt install fillets-ng && fillets
 ```
 
-Launch verified (world-map level select). Catch: the binary is called `fillets`.
+- **Licence:** GPL-2.0 (game and data); see `/usr/share/doc/fillets-ng/copyright` for full detail including packaging terms.
+- **Tested:** 1.0.1-4build2. Launched and rendered its illustrated world-map level select. Input not exercised.
+- **Controls (packaged man page, not exercised):** arrow keys move the current fish, Space switches fish, Backspace restarts the level, F5 toggles the move counter.
+- **Upstream:** http://fillets.sourceforge.net/ (reachable at test time)
 
-### Fillets-NG - Sokoban-like fish logic puzzles
+![Fillets-NG world map](screenshots/fillets-ng-menu.png)
 
-```bash
-sudo apt install fillets-ng && fillets
-```
+### Details: Pingus
 
-Launch verified (world-map level select). Catch: the binary is called `fillets`. [Details and screenshots](#fillets-ng)
 
-### Pingus - Lemmings-style penguin puzzles
-
-```bash
-sudo apt install pingus && pingus
-```
-
-Launch verified (main menu). Catch: this is the older 0.7.x stable branch, still shipped in Debian/Ubuntu. 
-
----
-
-### Pingus - Lemmings-style penguin puzzles
+A free Lemmings-style puzzle game with penguins: assign actions, guide the crowd to the exit.
 
 ```bash
 sudo apt install pingus && pingus
 ```
 
-Launch verified (main menu). Catch: this is the older 0.7.x stable branch, still shipped in Debian/Ubuntu. [Details and screenshots](#pingus)
+- **Licence:** GPL-2.0+ (package copyright).
+- **Tested:** 0.7.6-5.1. Launched and rendered its main menu (Story / Levelsets / Editor / Options). This is the older 0.7.x stable branch, still shipped in Debian/Ubuntu. Menu is mouse-driven; input not exercised in the automated run.
+- **Upstream:** http://pingus.seul.org/ (reachable at test time)
+
+![Pingus menu](screenshots/pingus-menu.png)
 
 ---
 
-## The games, with proof
+## How we test
+
+For each game:
+
+1. We resolve the full dependency closure with apt's own resolver (`apt-get install --download-only --print-uris`), so the packages tested are exactly the ones `sudo apt install` would fetch, in the same versions.
+2. We extract the packages and run the game against them in an isolated filesystem namespace (overlayfs over the stock system) on Ubuntu 22.04.5 LTS, with a virtual display (Xvfb, 1280x800x24) and no audio device. This is not a literal `sudo apt install` on a desktop machine; it is a runtime test of apt's exact package set.
+3. We capture screenshots from the live run and record whether the process stayed up, whether the screen responded to simulated keyboard/mouse input (xdotool), and anything that broke.
+4. We read the maintainer scripts (preinst/postinst/prerm/postrm) of every package used. Across all 13 they do routine housekeeping: register menu entries/icons, one `update-alternatives` link (crispy-doom), and set up high-score storage - powermanga installs its binary setgid `root:games` (mode 2755) with score files under `/var/games/powermanga`, and toppler and ltris create `root:games` score directories/files. Our extraction test does not reproduce those ownership/permission steps, so installed high-score saving was not exercised.
+5. Licence statements come from each package's own `/usr/share/doc/<package>/copyright` file (including the `-data` package where a game splits one), not from assumption.
+
+Honest limits:
+
+- No physical GPU and no sound card in the test environment. 3D games rendered in software; audio was disabled. Performance on real hardware will be better than anything you see here.
+- Input is simulated (xdotool), not a human player. "Demo/attract mode" entries prove the game engine renders and runs a level by itself; they do not prove player controls. Where a control scheme is listed from the game's packaged documentation, it says so, and it means we did not exercise it in the automated run.
+- Nothing here is a guarantee about other Ubuntu versions, Wayland sessions, or your hardware. It's a dated record of what ran, where, and how.
+
+## Evidence levels
+
+| Level | Meaning |
+|---|---|
+| **Gameplay screen reached** | Menus passed and an actual level/game screen rendered (start of play or attract/demo mode - the entry says which). |
+| **Menu interaction verified** | Menu or intro screens visibly changed in response to simulated input. |
+| **Launch verified** | Game launched, rendered its real menu/graphics, and stayed running. Input not exercised. |
+
+## Notes
+
+- Every screenshot in `screenshots/` was captured from our own test run on 7 November 2026; nothing is copied from upstream marketing material. Screenshots depict the games and remain subject to each game's own licence; they are included as test evidence.
+- Every game also has an Ubuntu package page: `https://packages.ubuntu.com/jammy/<package-name>`.
+- Current-LTS availability check (7 November 2026, packages.ubuntu.com): all ten headline packages exist on Ubuntu 26.04 LTS (Resolute Raccoon) - supertuxkart 1.5-2build1, 0ad 0.28.0-3, openttd 15.1-1, wesnoth 1:1.18.7-1, minetest 5.10.0+dfsg-5+deb13u1build0.26.04.1, endless-sky 0.10.16-3, supertux 0.6.3-5, hedgewars 1.0.3-4build4, teeworlds 0.7.5-3, freedoom 0.13.0-3. This is availability information only, fetched from the package index - we run-tested on 22.04, not 26.04.
+- Text in this repository is MIT-licensed (see LICENSE).
+- Planned next: more games, exercising real gameplay controls for every entry, a Windows edition, and re-dating entries as new Ubuntu releases land.
+
+### Details: Frozen Bubble
+
+Aim coloured bubbles from the penguin's launcher at the bottom; match 3 or more to drop them.
+
+- **Licence:** GPL-2.0 (package copyright file).
+- **Tested:** 2.212 (jammy). Menu rendered, we started Level 1 and the board rendered with bubbles in play above the penguin launcher.
+- **Upstream:** original project dormant (last upstream release years ago); Debian's package tracker shows continued packaging maintenance.
+
+![Frozen Bubble Level 1 board](screenshots/frozen-bubble-game.png)
+
+---
 
 ## How we test
 
@@ -465,5 +601,6 @@ Honest limits:
 
 - Every screenshot in `screenshots/` was captured from our own test run on 7 November 2026; nothing is copied from upstream marketing material. Screenshots depict the games and remain subject to each game's own licence; they are included as test evidence.
 - Every game also has an Ubuntu package page: `https://packages.ubuntu.com/jammy/<package-name>`.
+- Current-LTS availability check (7 November 2026, packages.ubuntu.com): all ten headline packages exist on Ubuntu 26.04 LTS (Resolute Raccoon) - supertuxkart 1.5-2build1, 0ad 0.28.0-3, openttd 15.1-1, wesnoth 1:1.18.7-1, minetest 5.10.0+dfsg-5+deb13u1build0.26.04.1, endless-sky 0.10.16-3, supertux 0.6.3-5, hedgewars 1.0.3-4build4, teeworlds 0.7.5-3, freedoom 0.13.0-3. This is availability information only, fetched from the package index - we run-tested on 22.04, not 26.04.
 - Text in this repository is MIT-licensed (see LICENSE).
 - Planned next: more games, exercising real gameplay controls for every entry, testing on the current Ubuntu LTS, a Windows edition, and re-dating entries as new Ubuntu releases land.
